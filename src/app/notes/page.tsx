@@ -5,20 +5,21 @@ import WindowWrapper from "@/components/WindowWrapper";
 
 export default function Notes() {
   const projects = [
-    {
-      title: "GigsWall",
-      desc: `🚀 A student-only freelance platform.  
-      Imagine Fiverr, but every gig is posted by and for students.  
-      Whether you’re designing, debugging, or editing resumes — this is the marketplace to trade your skills.`,
-      highlights: [
-        "🌍 Built a real student marketplace",
-        "💬 Real-time chat with Socket.io",
-        "🎨 Clean, modern UI with Tailwind",
-      ],
-      img: "/icons/gigswall.png",
-      link: "https://gigswall.com",
-      tags: ["Next.js", "TailwindCSS", "Socket.io"],
-    },
+   {
+  title: "GigsWall",
+  desc: `🚀 A freelance marketplace built for students, now expanding to anyone.  
+  Think of it like a modern campus version of Fiverr — but growing into a global community.  
+  People can post gigs, apply, and collaborate in real-time.`,
+  highlights: [
+    "🌍 Scaled from student-only to open marketplace",
+    "💬 Real-time chat & notifications with Firebase",
+    "🎨 Clean, modern UI with Tailwind + Next.js",
+    "🔐 Secure auth with JWT & Firebase",
+  ],
+  img: "/icons/gigswall.png",
+  link: "https://gigswall.com",
+  tags: ["Next.js", "TailwindCSS", "Firebase"],
+},
     {
       title: "InnerSpace",
       desc: `💭 A cozy journaling app where your thoughts feel at home.  
@@ -60,6 +61,32 @@ export default function Notes() {
       link: "https://manavisharma.netlify.app/",
       tags: ["Next.js", "TailwindCSS"],
     },
+    {
+      title: "ManaviWrites",
+      desc: `✍️ My personal blog platform.  
+      A space to share ideas on tech, creativity, and life — built with performance and readability in mind.`,
+      highlights: [
+        "📖 Clean, minimal blog UI",
+        "⚡ Fast, SEO-friendly setup",
+        "📝 Writing-focused design with Markdown support",
+      ],
+      img: "/icons/manaviwrites.png", // 👉 add an icon for it
+      link: "https://manaviwrites.com",
+      tags: ["Next.js", "MDX", "TailwindCSS"],
+    },
+    {
+      title: "PureLeaf",
+      desc: `🌿 A skincare brand landing page.  
+      Focused on clean, natural design with a modern hero section showcasing botanical skincare products.`,
+      highlights: [
+        "✨ Minimal hero section with strong branding",
+        "📸 Full-screen background with overlay",
+        "⚡ Fast, responsive layout built with Next.js",
+      ],
+      img: "/icons/pureleaf.png", 
+      link: "https://pureeleaf.vercel.app/", 
+      tags: ["Next.js", "TailwindCSS"],
+    },
   ];
 
   const [selected, setSelected] = useState(projects[0]);
@@ -73,73 +100,87 @@ export default function Notes() {
           <ul className="space-y-3">
             {projects.map((p) => (
               <li
-                key={p.title}
-                onClick={() => setSelected(p)}
-                className={`flex items-center gap-2 p-2 rounded-md cursor-pointer transition ${
-                  selected.title === p.title
-                    ? "bg-blue-100 text-blue-700 dark:bg-blue-600/40 dark:text-blue-200"
-                    : "hover:bg-gray-200 dark:hover:bg-gray-700"
-                }`}
-              >
+              key={p.title}
+              onClick={() => setSelected(p)}
+              className={`flex items-center gap-2 p-2 rounded-md cursor-pointer transition ${
+                selected.title === p.title
+                  ? "bg-blue-100 text-blue-700 dark:bg-blue-600/40 dark:text-blue-200"
+                  : "hover:bg-gray-200 dark:hover:bg-gray-700"
+              }`}
+            >
+              <a href={p.link} target="_blank" rel="noopener noreferrer">
                 <Image
                   src={p.img}
                   alt={p.title}
                   width={28}
                   height={28}
-                  className="rounded"
+                  className="rounded cursor-pointer hover:opacity-90 transition"
                 />
-                <span className="text-sm font-medium">{p.title}</span>
-              </li>
+              </a>
+              <span className="text-sm font-medium">{p.title}</span>
+            </li>
             ))}
           </ul>
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 p-8 overflow-y-auto">
-          <h1 className="text-3xl font-bold mb-4">{selected.title}</h1>
-          <p className="text-gray-700 dark:text-gray-300 mb-4 whitespace-pre-line">
-            {selected.desc}
-          </p>
+        {/* Main Content */}
+<div className="flex-1 p-8 overflow-y-auto">
+  <h1 className="text-3xl font-bold mb-4">{selected.title}</h1>
+  <p className="text-gray-700 dark:text-gray-300 mb-4 whitespace-pre-line">
+    {selected.desc}
+  </p>
 
-          {/* Screenshot */}
-          <div className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6">
-            <Image
-              src={selected.img}
-              alt={selected.title}
-              width={600}
-              height={300}
-              className="rounded-lg object-contain mx-auto"
-            />
-          </div>
+  {/* Screenshot */}
+{/* Screenshot */}
+<div className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6">
+  <a href={selected.link} target="_blank" rel="noopener noreferrer">
+    <Image
+      src={selected.img}
+      alt={selected.title}
+      width={600}
+      height={300}
+      className="rounded-lg object-contain mx-auto cursor-pointer hover:opacity-90 transition"
+    />
+  </a>
+</div>
 
-          {/* Highlights */}
-          <ul className="list-disc list-inside mb-6 space-y-1 text-gray-600 dark:text-gray-300">
-            {selected.highlights.map((h, i) => (
-              <li key={i}>{h}</li>
-            ))}
-          </ul>
+  {/* Highlights */}
+  <ul className="list-disc list-inside mb-6 space-y-1 text-gray-600 dark:text-gray-300">
+    {selected.highlights.map((h, i) => (
+      <li key={i}>{h}</li>
+    ))}
+  </ul>
 
-          {/* Visit Button */}
-          <a
-            href={selected.link}
-            target="_blank"
-            className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition"
-          >
-            🔗 Visit Project
-          </a>
+  {/* Footer: tags + action */}
+  <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-lg 
+                  bg-gray-50 dark:bg-gray-800 shadow-inner">
+    {/* Tags */}
+    <div className="flex flex-wrap gap-2">
+      {selected.tags.map((tag) => (
+        <span
+          key={tag}
+          className="text-xs px-3 py-1 rounded-full 
+                     bg-blue-100 text-blue-700 
+                     dark:bg-blue-600/30 dark:text-blue-200 
+                     font-medium"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
 
-          {/* Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {selected.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
+    {/* Visit Project Button */}
+    <a
+      href={selected.link}
+      target="_blank"
+      className="px-5 py-2 rounded-md bg-blue-600 hover:bg-blue-500 
+                 text-white font-medium shadow-md transition"
+    >
+      🔗 View Project
+    </a>
+  </div>
+</div>
       </div>
     </WindowWrapper>
   );
