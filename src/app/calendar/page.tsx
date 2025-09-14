@@ -1,0 +1,41 @@
+"use client";
+import WindowWrapper from "@/components/WindowWrapper";
+
+export default function Calendar() {
+  const events = [
+    { company: "GalaxEye", role: "👩‍💻 Software Intern", date: "Dec 2022 – Jan 2023", color: "bg-purple-500" },
+    { company: "Arka Aerospace", role: "🛰 Software Intern", date: "Jun 2023 – Oct 2023", color: "bg-green-500" },
+    { company: "Genpact", role: "💼 Software Intern", date: "Feb 2024 – Jul 2024", color: "bg-yellow-500" },
+    { company: "OnlyC2C", role: "🚀 Intern", date: "Jan 2025 – Present", color: "bg-pink-500" },
+    { company: "ITProFound", role: "🛠 Software Intern", date: "May 2025 – Jul 2025", color: "bg-blue-500" },
+  ];
+
+  return (
+    <WindowWrapper title="📅 Internship Timeline" width="700px">
+      <div className="relative space-y-8">
+        {/* Middle Line */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700"></div>
+
+        {events.map((event, i) => (
+          <div key={i} className={`flex ${i % 2 === 0 ? "justify-start" : "justify-end"} relative`}>
+            <div className="relative w-5/12">
+              {/* Dot */}
+              <div
+                className={`absolute top-4 w-4 h-4 ${event.color} rounded-full border-2 border-white dark:border-gray-900 ${
+                  i % 2 === 0 ? "right-[-32px]" : "left-[-32px]"
+                }`}
+              ></div>
+
+              {/* Card */}
+              <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 duration-200">
+                <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">{event.company}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{event.role}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">{event.date}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </WindowWrapper>
+  );
+}
