@@ -25,14 +25,14 @@ export default function WindowWrapper({
   const isTerminal = variant === "terminal";
 
   return (
-    <div className="h-screen w-screen bg-gray-200/40 dark:bg-black/40 flex items-center justify-center">
+    <div className="h-screen w-screen bg-gray-200/40  flex items-center justify-center">
       <Draggable handle=".window-toolbar" nodeRef={nodeRef}>
         <div
           ref={nodeRef}
           className={`rounded-xl shadow-2xl border overflow-hidden 
             ${isTerminal 
               ? "bg-[#2b2b2b]/80 backdrop-blur-md border-gray-700 text-gray-100 font-mono" 
-              : "bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-gray-300 dark:border-gray-700"
+              : "bg-white/90  backdrop-blur-xl border-gray-300 "
             }
             w-[95%] sm:w-[90%] md:w-[750px] lg:w-[900px]
             h-[75vh] sm:h-[80vh] md:h-[600px]
@@ -45,7 +45,7 @@ export default function WindowWrapper({
             className={`window-toolbar flex items-center px-4 py-2 border-b cursor-move
               ${isTerminal 
                 ? "bg-[#1e1e1e]/80 border-gray-700 text-sm text-gray-300"
-                : "bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 font-semibold text-gray-700 dark:text-gray-300"
+                : "bg-gray-100 border-gray-300 font-semibold text-gray-700"
               }`}
           >
             <div className="flex gap-2">

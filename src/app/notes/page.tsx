@@ -71,7 +71,7 @@ export default function Notes() {
         "⚡ Fast, SEO-friendly setup",
         "📝 Writing-focused design with Markdown support",
       ],
-      img: "/icons/manaviwrites.png", // 👉 add an icon for it
+      img: "/icons/manaviwrites.png",
       link: "https://manaviwrites.com",
       tags: ["Next.js", "MDX", "TailwindCSS"],
     },
@@ -96,17 +96,18 @@ export default function Notes() {
     <WindowWrapper title="📂 Projects" width="1000px" height="650px">
       <div className="flex h-full overflow-hidden">
         {/* Sidebar */}
-        <div className="w-72 bg-gray-100 dark:bg-gray-800 border-r border-gray-300 dark:border-gray-700 p-4 overflow-y-auto">
+        <div className="w-72 bg-gray-100 border-r border-gray-300 p-4 overflow-y-auto">
           <h2 className="text-lg font-semibold mb-4">My Projects</h2>
           <ul className="space-y-3">
             {projects.map((p) => (
               <li
                 key={p.title}
                 onClick={() => setSelected(p)}
-                className={`flex items-center gap-2 p-2 rounded-md cursor-pointer transition ${selected.title === p.title
-                    ? "bg-blue-100 text-blue-700 dark:bg-blue-600/40 dark:text-blue-200"
-                    : "hover:bg-gray-200 dark:hover:bg-gray-700"
-                  }`}
+                className={`flex items-center gap-2 p-2 rounded-md cursor-pointer transition ${
+                  selected.title === p.title
+                    ? "bg-blue-100 text-blue-700"
+                    : "hover:bg-gray-200"
+                }`}
               >
                 <a href={p.link} target="_blank" rel="noopener noreferrer">
                   <Image
@@ -124,16 +125,14 @@ export default function Notes() {
         </div>
 
         {/* Main Content */}
-        {/* Main Content */}
         <div className="flex-1 p-8 overflow-y-auto">
           <h1 className="text-3xl font-bold mb-4">{selected.title}</h1>
-          <p className="text-gray-700 dark:text-gray-300 mb-4 whitespace-pre-line">
+          <p className="text-gray-700 mb-4 whitespace-pre-line">
             {selected.desc}
           </p>
 
           {/* Screenshot */}
-          {/* Screenshot */}
-          <div className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6">
+          <div className="bg-gray-100 rounded-lg shadow-md p-4 mb-6">
             <a href={selected.link} target="_blank" rel="noopener noreferrer">
               <Image
                 src={selected.img}
@@ -146,24 +145,21 @@ export default function Notes() {
           </div>
 
           {/* Highlights */}
-          <ul className="list-disc list-inside mb-6 space-y-1 text-gray-600 dark:text-gray-300">
+          <ul className="list-disc list-inside mb-6 space-y-1 text-gray-600">
             {selected.highlights.map((h, i) => (
               <li key={i}>{h}</li>
             ))}
           </ul>
 
           {/* Footer: tags + action */}
-          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-lg 
-                  bg-gray-50 dark:bg-gray-800 shadow-inner">
+          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-lg bg-gray-50 shadow-inner">
             {/* Tags */}
             <div className="flex flex-wrap gap-2">
               {selected.tags.map((tag) => (
                 <span
                   key={tag}
                   className="text-xs px-3 py-1 rounded-full 
-                     bg-blue-100 text-blue-700 
-                     dark:bg-blue-600/30 dark:text-blue-200 
-                     font-medium"
+                             bg-blue-100 text-blue-700 font-medium"
                 >
                   {tag}
                 </span>
@@ -175,7 +171,7 @@ export default function Notes() {
               href={selected.link}
               target="_blank"
               className="px-5 py-2 rounded-md bg-blue-600 hover:bg-blue-500 
-                 text-white font-medium shadow-md transition"
+                         text-white font-medium shadow-md transition"
             >
               🔗 View Project
             </a>

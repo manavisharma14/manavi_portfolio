@@ -19,7 +19,7 @@ export default function Dock() {
     <div
       className="fixed bottom-4 left-1/2 -translate-x-1/2
                  flex items-end gap-4 px-4 py-2
-                 bg-white/20 dark:bg-black/30
+                 bg-white/20 
                  backdrop-blur-md backdrop-saturate-150
                  rounded-2xl shadow-lg border border-white/10
                  z-50"

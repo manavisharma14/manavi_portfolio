@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <nav
       className="fixed top-0 left-0 w-full h-8 
-             bg-white/20 dark:bg-black/30
+             bg-white/20 
              backdrop-blur-md backdrop-saturate-150
              border-b border-white/10
              flex items-center px-4 text-xs text-black z-50 justify-between"
@@ -34,7 +34,7 @@ export default function Navbar() {
         <span className="font-semibold">manaviOS</span>
       </div>
 
-      <div className="flex items-center gap-3 text-black dark:text-white">
+      <div className="flex items-center gap-3 text-black">
         <span>Wi-Fi</span>
         <span>🔋 95%</span>
         <span>{time}</span>
