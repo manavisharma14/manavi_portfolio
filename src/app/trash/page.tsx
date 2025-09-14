@@ -5,17 +5,28 @@ import Draggable from "react-draggable";
 
 export default function Trash() {
   const router = useRouter();
-  const nodeRef = useRef<HTMLDivElement>(null); // 👈 create a ref
+  const nodeRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-200/40 dark:bg-black/40">
       <Draggable handle=".window-toolbar" nodeRef={nodeRef}>
         <div
-          ref={nodeRef} // 👈 attach it here
-          className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl w-[600px] rounded-xl shadow-2xl border border-gray-300 dark:border-gray-700 overflow-hidden absolute"
+          ref={nodeRef}
+          className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl 
+                     w-[600px] max-w-[90vw] rounded-xl shadow-2xl 
+                     border border-gray-300 dark:border-gray-700 
+                     overflow-hidden absolute"
         >
-          {/* Toolbar (drag handle) */}
-          <div className="window-toolbar h-10 bg-gray-100 dark:bg-gray-800 flex items-center px-4 border-b border-gray-300 dark:border-gray-700 cursor-move">
+          {/* Toolbar */}
+          <div className="window-toolbar h-10 flex items-center px-4 border-b border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 cursor-move">
+            <div className="flex gap-2 mr-4">
+              <span
+                onClick={() => router.push("/")}
+                className="w-3 h-3 bg-red-500 rounded-full cursor-pointer hover:brightness-90"
+              />
+              <span className="w-3 h-3 bg-yellow-500 rounded-full" />
+              <span className="w-3 h-3 bg-green-500 rounded-full" />
+            </div>
             <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">
               🗑 Trash
             </span>

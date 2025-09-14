@@ -1,3 +1,4 @@
+// WindowWrapper.tsx
 "use client";
 import { useRouter } from "next/navigation";
 import Draggable from "react-draggable";
@@ -8,18 +9,19 @@ export default function WindowWrapper({
   children,
   width = "700px",
   height = "auto",
-  variant = "default", // add variant
+  variant = "default",
+  className = "",
 }: {
   title: string;
   children: ReactNode;
   width?: string;
   height?: string;
   variant?: "default" | "terminal";
+  className?: string;
 }) {
   const router = useRouter();
   const nodeRef = useRef<HTMLDivElement>(null);
 
-  // styles depending on variant
   const isTerminal = variant === "terminal";
 
   return (
@@ -31,8 +33,12 @@ export default function WindowWrapper({
             ${isTerminal 
               ? "bg-[#2b2b2b]/80 backdrop-blur-md border-gray-700 text-gray-100 font-mono" 
               : "bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-gray-300 dark:border-gray-700"
-            }`}
-          style={{ width, height }}
+            }
+            w-[95%] sm:w-[90%] md:w-[750px] lg:w-[900px]
+            h-[75vh] sm:h-[80vh] md:h-[600px]
+            ${className}
+          `}
+          style={{ maxWidth: width, maxHeight: height }}
         >
           {/* Toolbar */}
           <div
@@ -50,7 +56,7 @@ export default function WindowWrapper({
               <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
               <span className="w-3 h-3 rounded-full bg-green-500"></span>
             </div>
-            <div className="flex-1 text-center">{title}</div>
+            <div className="flex-1 text-center truncate">{title}</div>
           </div>
 
           {/* Content */}

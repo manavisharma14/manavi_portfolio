@@ -8,6 +8,7 @@ export default function Terminal() {
     "Type `help` to see available commands.",
   ]);
   const [input, setInput] = useState("");
+  const [historyIndex, setHistoryIndex] = useState<number | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   const commands: Record<string, string | string[]> = {
@@ -90,40 +91,70 @@ export default function Terminal() {
     if (!input.trim()) return;
     handleCommand(input.trim());
     setInput("");
+    setHistoryIndex(null);
   };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHistoryIndex((prev) =>
+        prev === null ? history.length - 1 : Math.max(prev - 1, 0)
+      );
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setHistoryIndex((prev) =>
+        prev === null ? null : prev < history.length - 1 ? prev + 1 : null
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (historyIndex !== null) {
+      const prevCmd = history
+        .filter((line) => line.startsWith("<span"))[historyIndex];
+      if (prevCmd) {
+        setInput(prevCmd.replace(/<[^>]*>/g, "").split("% ")[1] || "");
+      }
+    }
+  }, [historyIndex, history]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [history]);
 
   return (
-<WindowWrapper title="Terminal — zsh" width="700px" height="500px" variant="terminal">
-  {/* Just the terminal body now */}
-  <div className="flex flex-col h-full text-sm">
-    {history.map((line, i) => (
-      <p
-        key={i}
-        className="whitespace-pre-wrap"
-        dangerouslySetInnerHTML={{ __html: line }}
-      />
-    ))}
+    <WindowWrapper
+      title="Terminal — zsh"
+      width="min(90vw, 700px)"
+      height="min(70vh, 500px)"
+      variant="terminal"
+    >
+      <div className="flex flex-col h-full text-sm">
+        {history.map((line, i) => (
+          <p
+            key={i}
+            className="whitespace-pre-wrap transition-opacity duration-300 opacity-100"
+            dangerouslySetInnerHTML={{ __html: line }}
+          />
+        ))}
 
-    <form onSubmit={handleSubmit} className="flex mt-2">
-      <span>
-        <span className="text-green-400">manavisharma</span>@
-        <span className="text-cyan-400">MacBook-Air</span>{" "}
-        <span className="text-blue-400">~</span> %
-      </span>
-      <input
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        className="bg-transparent outline-none flex-1 caret-gray-100 ml-2"
-        autoFocus
-      />
-      <span className="animate-blink">▮</span>
-    </form>
-    <div ref={bottomRef} />
-  </div>
-</WindowWrapper>
+        {/* Input line */}
+        <form onSubmit={handleSubmit} className="flex mt-2">
+          <span>
+            <span className="text-green-400">manavisharma</span>@
+            <span className="text-cyan-400">MacBook-Air</span>{" "}
+            <span className="text-blue-400">~</span> %
+          </span>
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className="bg-transparent outline-none flex-1 caret-green-400 ml-2"
+            autoFocus
+          />
+        </form>
+        <div ref={bottomRef} />
+      </div>
+    </WindowWrapper>
   );
 }

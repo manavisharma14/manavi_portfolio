@@ -11,24 +11,29 @@ export default function Calendar() {
   ];
 
   return (
-    <WindowWrapper title="📅 Internship Timeline" width="700px">
-      <div className="relative space-y-8">
+    <WindowWrapper title="📅 Internship Timeline" width="900px" height="auto">
+      <div className="relative space-y-12 px-4 sm:px-6 md:px-8">
         {/* Middle Line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700"></div>
+        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
 
         {events.map((event, i) => (
-          <div key={i} className={`flex ${i % 2 === 0 ? "justify-start" : "justify-end"} relative`}>
-            <div className="relative w-5/12">
-              {/* Dot */}
+          <div
+            key={i}
+            className={`flex ${
+              i % 2 === 0 ? "justify-start md:justify-start" : "justify-end md:justify-end"
+            } relative`}
+          >
+            <div className="relative w-full md:w-5/12">
+              {/* Dot (hidden on small screens) */}
               <div
-                className={`absolute top-4 w-4 h-4 ${event.color} rounded-full border-2 border-white dark:border-gray-900 ${
+                className={`hidden md:block absolute top-5 w-4 h-4 ${event.color} rounded-full border-2 border-white dark:border-gray-900 ${
                   i % 2 === 0 ? "right-[-32px]" : "left-[-32px]"
                 }`}
               ></div>
 
               {/* Card */}
-              <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 duration-200">
-                <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">{event.company}</h3>
+              <div className="bg-gray-100 dark:bg-gray-800 p-4 sm:p-5 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 duration-200">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{event.company}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">{event.role}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">{event.date}</p>
               </div>
