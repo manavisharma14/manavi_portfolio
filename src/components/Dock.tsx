@@ -36,7 +36,7 @@ export default function Dock() {
           }}
           className="transition-transform duration-200 hover:scale-125"
         >
-          <div className="w-12 h-12 relative">
+          <div className="w-16 h-16 relative">
             <Image
               src={app.src}
               alt={app.alt}
