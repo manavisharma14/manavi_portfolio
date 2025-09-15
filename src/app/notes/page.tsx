@@ -103,7 +103,7 @@ export default function Notes() {
               <li
                 key={p.title}
                 onClick={() => setSelected(p)}
-                className={`flex items-center gap-2 p-2 rounded-md cursor-pointer transition ${
+                className={`flex items-center gap-2 p-2 rounded-md cursor-pointer transition shadow ${
                   selected.title === p.title
                     ? "bg-blue-100 text-blue-700"
                     : "hover:bg-gray-200"

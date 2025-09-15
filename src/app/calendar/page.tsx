@@ -3,11 +3,11 @@ import WindowWrapper from "@/components/WindowWrapper";
 
 export default function Calendar() {
   const events = [
-    { company: "GalaxEye", role: "👩‍💻 Software Intern", date: "Dec 2022 – Jan 2023", color: "bg-purple-500" },
-    { company: "Arka Aerospace", role: "🛰 Software Intern", date: "Jun 2023 – Oct 2023", color: "bg-green-500" },
-    { company: "Genpact", role: "💼 Software Intern", date: "Feb 2024 – Jul 2024", color: "bg-yellow-500" },
-    { company: "OnlyC2C", role: "🚀 Intern", date: "Jan 2025 – Present", color: "bg-pink-500" },
-    { company: "ITProFound", role: "🛠 Software Intern", date: "May 2025 – Jul 2025", color: "bg-blue-500" },
+    { company: "GalaxEye", role: "Software Intern", date: "Dec 2022 – Jan 2023", color: "bg-purple-500" },
+    { company: "Arka Aerospace", role: "Software Intern", date: "Jun 2023 – Oct 2023", color: "bg-green-500" },
+    { company: "Genpact", role: "Software Intern", date: "Feb 2024 – Jul 2024", color: "bg-yellow-500" },
+    { company: "OnlyC2C", role: "Intern", date: "Jan 2025 – Present", color: "bg-pink-500" },
+    { company: "ITProFound", role: "Software Intern", date: "May 2025 – Jul 2025", color: "bg-blue-500" },
   ];
 
   return (
