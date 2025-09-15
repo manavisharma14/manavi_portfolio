@@ -16,7 +16,7 @@ export default function Mail() {
       <div className="p-6">
         {sent && (
           <div className="p-4 mb-6 rounded-md bg-green-100 text-green-800 text-center">
-            ✅ Message sent (demo)
+            ✅ Message sent successfully!
           </div>
         )}
 

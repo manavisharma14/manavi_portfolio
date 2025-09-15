@@ -7,15 +7,15 @@ export default function Notes() {
   const projects = [
     {
       title: "GigsWall",
-      desc: `🚀 A freelance marketplace where anyone can post gigs, and students bring them to life.  
+      desc: `🌍 A freelance marketplace where anyone can post gigs, and students bring them to life.  
       Born as a campus-only platform, it’s now scaling into a global hub for student-powered freelance work.  
       Whether it’s design, code, or content — students take on real-world projects and build experience.`,
       highlights: [
-        "🌍 Started as student-only, now open for anyone to post gigs",
-        "🎓 Students apply, work, and earn through real projects",
-        "💬 Real-time chat & notifications with Firebase",
-        "🎨 Clean, modern UI with Tailwind + Next.js",
-        "🔐 Secure authentication with JWT & Firebase",
+        " Started as student-only, now open for anyone to post gigs",
+        " Students apply, work, and earn through real projects",
+        " Real-time chat & notifications with Firebase",
+        " Clean, modern UI with Tailwind + Next.js",
+        " Secure authentication with JWT & Firebase",
       ],
       img: "/icons/gigswall.png",
       link: "https://gigswall.com",
@@ -27,9 +27,9 @@ export default function Notes() {
       Write daily reflections, track moods, and let AI turn them into insights.  
       It’s like having a therapist… but without the awkward small talk.`,
       highlights: [
-        "🤖 AI-powered weekly reflections",
-        "📊 Mood + habit tracking with visuals",
-        "🌸 Gentle, pastel aesthetic",
+        " AI-powered weekly reflections",
+        " Mood + habit tracking with visuals",
+        " Gentle, pastel aesthetic",
       ],
       img: "/icons/innerspace.png",
       link: "https://innerspaceai.netlify.app/",
@@ -40,9 +40,9 @@ export default function Notes() {
       desc: `🌱 Because sticking to habits is tough — this app makes it fun.  
       Create habits, track streaks, and celebrate small wins (yes, even finishing a glass of water counts 💧).`,
       highlights: [
-        "📆 Calendar-based habit tracker",
-        "🔥 Streaks & progress visualization",
-        "✨ Minimal, green-themed design",
+        " Calendar-based habit tracker",
+        " Streaks & progress visualization",
+        " Minimal, green-themed design",
       ],
       img: "/icons/habitcheck.png",
       link: "https://habitcheck.life",
@@ -54,9 +54,9 @@ export default function Notes() {
       A space where I showcase my work, experiments, and ideas.  
       Always evolving — because no dev’s portfolio is ever really ‘done’.`,
       highlights: [
-        "⚡ Built with Next.js + Tailwind",
-        "📱 Fully responsive design",
-        "🎨 Clean dark/light mode toggle",
+        " Built with Next.js + Tailwind",
+        " Fully responsive design",
+        " Clean dark/light mode toggle",
       ],
       img: "/icons/portfolio.png",
       link: "https://manavisharma.netlify.app/",
@@ -67,9 +67,9 @@ export default function Notes() {
       desc: `✍️ My personal blog platform.  
       A space to share ideas on tech, creativity, and life — built with performance and readability in mind.`,
       highlights: [
-        "📖 Clean, minimal blog UI",
-        "⚡ Fast, SEO-friendly setup",
-        "📝 Writing-focused design with Markdown support",
+        " Clean, minimal blog UI",
+        " Fast, SEO-friendly setup",
+        " Writing-focused design with Markdown support",
       ],
       img: "/icons/manaviwrites.png",
       link: "https://manaviwrites.com",
@@ -80,9 +80,9 @@ export default function Notes() {
       desc: `🌿 A skincare brand landing page.  
       Focused on clean, natural design with a modern hero section showcasing botanical skincare products.`,
       highlights: [
-        "✨ Minimal hero section with strong branding",
-        "📸 Full-screen background with overlay",
-        "⚡ Fast, responsive layout built with Next.js",
+        " Minimal hero section with strong branding",
+        " Full-screen background with overlay",
+        " Fast, responsive layout built with Next.js",
       ],
       img: "/icons/pureleaf.png",
       link: "https://pureeleaf.vercel.app/",

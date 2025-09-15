@@ -1,5 +1,6 @@
 "use client";
 import WindowWrapper from "@/components/WindowWrapper";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function About() {
   return (
@@ -18,12 +19,12 @@ export default function About() {
         </p>
 
         <p className="text-xs sm:text-sm md:text-base leading-relaxed mb-6 text-gray-600">
-          I love building things at the intersection of <b>technology</b>, <b>design</b>, and <b>creativity</b>.  
-          My journey has been all about <i>learning, experimenting, and sharing knowledge</i>.  
+          I’m passionate about building things that people actually find useful — from small tools to full projects.  
+          I love working at the intersection of <b>technology</b>, <b>design</b>, and <b>creativity</b>, always experimenting with new ideas and learning by building.
         </p>
 
         <p className="text-xs sm:text-sm md:text-base leading-relaxed mb-8 text-gray-600">
-          Outside of coding and research, I write blogs on{" "}
+          Outside of coding, I share my thoughts on{" "}
           <a
             href="https://manaviwrites.com"
             target="_blank"
@@ -31,18 +32,42 @@ export default function About() {
             className="font-semibold text-blue-600 hover:underline"
           >
             manaviwrites.com
-          </a>, create portfolio projects, and explore ideas in AI, design systems, and interactive web experiences. 🚀
+          </a>
+          , work on portfolio projects, and explore new ideas in interactive web experiences. 🚀
         </p>
 
-        {/* Grid for future links or buttons */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
-          {/* Example: */}
-          {/* <a className="p-3 rounded-lg border bg-gray-50 hover:bg-gray-100 transition text-sm font-medium">
-            📄 Resume
+        {/* Socials */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md mx-auto">
+          <a
+            href="https://www.linkedin.com/in/manavi-sharma-521014222/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center gap-2 rounded-lg border bg-gray-50 hover:bg-gray-100 transition p-3 text-sm font-medium"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
+            LinkedIn
           </a>
-          <a className="p-3 rounded-lg border bg-gray-50 hover:bg-gray-100 transition text-sm font-medium">
-            💼 LinkedIn
-          </a> */}
+
+          <a
+            href="https://github.com/manavisharma14"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center gap-2 rounded-lg border bg-gray-50 hover:bg-gray-100 transition p-3 text-sm font-medium"
+            aria-label="GitHub"
+          >
+            <Github className="h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
+            GitHub
+          </a>
+
+          <a
+            href="mailto:manavisharma14@gmail.com"
+            className="group flex items-center justify-center gap-2 rounded-lg border bg-gray-50 hover:bg-gray-100 transition p-3 text-sm font-medium"
+            aria-label="Email"
+          >
+            <Mail className="h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
+            Email
+          </a>
         </div>
       </div>
     </WindowWrapper>
